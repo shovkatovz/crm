@@ -18,6 +18,6 @@ jobs:
         key: ${{ secrets.KEY }}
         script: |
           cd /home/ubuntu/crm
-          git pull origin main
+          git pull origin main --no-rebase
           docker-compose down
           docker-compose up -d
