@@ -17,7 +17,7 @@ jobs:
         username: ${{ secrets.USER }}
         key: ${{ secrets.KEY }}
         script: |
-          cd /home/ubuntu/your_project_folder  # loyihangiz joylashgan papkani yozing
+          cd /home/ubuntu/crm
           git pull origin main
           docker-compose down
           docker-compose up -d
