@@ -1,0 +1,23 @@
+name: Remote Deploy via SSH
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: SSH orqali masofaviy serverga deploy qilish
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USER }}
+        key: ${{ secrets.KEY }}
+        script: |
+          cd /home/ubuntu/your_project_folder  # loyihangiz joylashgan papkani yozing
+          git pull origin main
+          docker-compose down
+          docker-compose up -d
